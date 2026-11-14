@@ -14,6 +14,6 @@ productRouter.get("/filter", (req, res) => {
 
 productRouter.post("/", createProduct);
 productRouter.delete("/:name", deleteProdcut); //name means input parameter in data base(its a json tag)
-productRouter.get("/:name", getProductByName); //:denmt psse link eke ewna onima route ekk enwa name lesa slakanwa
+productRouter.get("/:name", getProductByName); //:denmt psse link eke ewna onima route ekk enwa name lesa slakanwaaaa
 
 export default productRouter;
