@@ -6,10 +6,13 @@ import studentRouter from './routers/studentRouter.js';
 import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 import jwt from "jsonwebtoken"
+import dotenv from "dotenv";   //import dotenv for hide monogo url for safety
+
+dotenv.config()   //run confi, LOAD env file to dotenv confing
 
 const app = express();
 
-const mongoUrl = "mongodb+srv://majexticofficial_db_user:TxP0EUr09H0B9bg1@cluster0.iwncqiw.mongodb.net/"
+const mongoUrl = process.env.MONGO_DB_URI   //asign monngo env file data to mongourl
 
 mongoose.connect(mongoUrl, {})
 const connection = mongoose.connection;
