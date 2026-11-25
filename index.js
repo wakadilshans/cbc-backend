@@ -31,7 +31,7 @@ app.use(
         console.log(token)
 
         if (token != null) {   //if token not null
-            jwt.verify(token, "cbc-secret-key", (error, decoded) => {  //decrypted token by key
+            jwt.verify(token, process.env.SECRET, (error, decoded) => {  //decrypted token by key,KEY MOVES TO ENV FILE FOR SAFERTY
                 if (!error) {  //if not error
                     //console.log(decoded) //shows the decoded user details
                     req.user = decoded   //attach rq for dedcoded details for user.now user use decoded details

@@ -1,6 +1,9 @@
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
+import dotenv from "dotenv";
+
+dotenv.config()
 
 export function createUser(req, res) {
 
@@ -42,7 +45,7 @@ export function loginUser(req, res) {
                         type: user.type,
                         profilePicture: user.profilePicture
                     },
-                        "cbc-secret-key"         //token key
+                        process.env.SECRET         //token key
                     )
                     //console.log(token)
                     res.json({
@@ -61,10 +64,10 @@ export function loginUser(req, res) {
     )
 }
 
-export function deleteUser(req,res){
-    User.deleteOne({email: req.body.email}).then(()=>{
+export function deleteUser(req, res) {
+    User.deleteOne({ email: req.body.email }).then(() => {
         res.json({
-            message:"User deleted"
+            message: "User deleted"
         })
     })
 };
